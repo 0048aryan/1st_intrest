@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#160d1c" />
+    <meta name="description" content="A small journey made for Vishwa." />
+    <title>A small journey for Vishwa</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="constellation" aria-hidden="true"></canvas>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="wordmark" href="#welcome" aria-label="Back to the beginning">a small journey</a>
+      <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false">
+        <span class="sound-icon">♪</span><span id="soundLabel">Sound off</span>
+      </button>
+    </header>
+
+    <nav class="milestones" aria-label="Journey progress">
+      <a href="#welcome" aria-label="Welcome"></a>
+      <a href="#beginning" aria-label="Where it started"></a>
+      <a href="#years" aria-label="Five years"></a>
+      <a href="#confession" aria-label="The thing I never said"></a>
+      <a href="#memories" aria-label="Memories"></a>
+      <a href="#question" aria-label="The question"></a>
+    </nav>
+
+    <main>
+      <section class="scene welcome-scene" id="welcome" data-track="welcome">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+        <div class="welcome-copy reveal-group">
+          <p class="eyebrow" data-bind="welcomeEyebrow">for Vishwa, quietly</p>
+          <p class="mystery-line reveal">Hey <span data-bind="name">Vishwa</span>.</p>
+          <h1 class="reveal" data-bind="welcomeTitle">I made something for you.</h1>
+          <p class="intro reveal" data-bind="welcomeDescription">Not a grand gesture. Just a little place to tell a story I have carried for a while.</p>
+          <button class="button primary magnetic reveal" id="startJourney" type="button">
+            <span data-bind="startLabel">Start the journey</span><span aria-hidden="true">→</span>
+          </button>
+          <p class="quiet-note reveal">Tap the stars while you are here.</p>
+        </div>
+        <div class="scroll-cue" aria-hidden="true"><span></span>scroll gently</div>
+      </section>
+
+      <section class="scene beginning-scene" id="beginning" data-track="beginning">
+        <div class="section-copy story-copy">
+          <p class="eyebrow">chapter one</p>
+          <h2>Where it started.</h2>
+          <div class="notebook-card tilt-card" tabindex="0" role="button" aria-label="Open the school note">
+            <div class="tape"></div>
+            <p class="handwriting">It all started in <strong>7th standard.</strong></p>
+            <div class="rule"></div>
+            <p class="handwriting smaller">That was the first time I saw you.</p>
+            <button class="tiny-button" type="button">open the note <span>+</span></button>
+            <p class="hidden-note">I didn't know it at the time, but that moment would stay with me for years.</p>
+          </div>
+          <p class="section-whisper">A small memory can become a very long story.</p>
+        </div>
+        <div class="paper-plane" aria-hidden="true">✦</div>
+      </section>
+
+      <section class="scene years-scene" id="years" data-track="timeline">
+        <div class="section-copy centered">
+          <p class="eyebrow">chapter two</p>
+          <h2><span class="accent">5</span> years.</h2>
+          <p class="lead" data-bind="timelineIntro">That's how long I've been carrying something I never said.</p>
+          <div class="timeline" id="timeline" aria-label="Five-year timeline"></div>
+          <p class="timeline-detail" id="timelineDetail" aria-live="polite">Choose a year to unfold a tiny part of the story.</p>
+        </div>
+      </section>
+
+      <section class="scene confession-scene" id="confession" data-track="confession">
+        <div class="confession-glow"></div>
+        <div class="section-copy centered narrow">
+          <p class="eyebrow">chapter three</p>
+          <h2 class="confession-title">The thing I never said.</h2>
+          <p class="lead long-pause">There is something I've wanted to tell you for a very long time.</p>
+          <div class="confession-lines" id="confessionLines"></div>
+          <p class="confession-ending" data-bind="confessionEnding">So today, I'm finally telling you.</p>
+        </div>
+      </section>
+
+      <section class="scene reasons-scene" id="reasons" data-track="reasons">
+        <div class="section-copy centered">
+          <p class="eyebrow">a few reasons</p>
+          <h2>Why you?</h2>
+          <p class="lead">The sort of things that deserve more than one small sentence.</p>
+          <div class="reasons-grid" id="reasonGrid"></div>
+          <p class="edit-hint">These are little placeholders, waiting for the real details only I know.</p>
+        </div>
+      </section>
+
+      <section class="scene memories-scene" id="memories" data-track="memories">
+        <div class="section-copy">
+          <p class="eyebrow">a tiny archive</p>
+          <h2>A few things I'd like to remember.</h2>
+          <p class="lead">Photos are optional. The story works either way.</p>
+          <div class="memory-wall" id="memoryWall"></div>
+          <div class="upload-row">
+            <label class="button secondary" for="photoUpload">Add photos for this moment <span>+</span></label>
+            <input id="photoUpload" type="file" accept="image/*" multiple />
+           
+          </div>
+        </div>
+      </section>
+
+      <section class="scene buildup-scene" id="buildup" data-track="buildup">
+        <div class="section-copy centered narrow build-copy" id="buildCopy">
+          <p class="eyebrow">one last thing</p>
+          <p class="build-line">Vishwa...</p>
+          <p class="build-line">I've kept this to myself for five years.</p>
+          <p class="build-line">And I don't know what your answer will be.</p>
+          <p class="build-line">But I finally want to ask.</p>
+          <a class="button primary magnetic build-button" href="#question">One last thing <span>→</span></a>
+        </div>
+      </section>
+
+      <section class="scene question-scene" id="question" data-track="proposal">
+        <div class="heart-cloud" aria-hidden="true"><i>♥</i><i>♥</i><i>♥</i><i>♥</i></div>
+        <div class="section-copy centered proposal-copy">
+          <p class="eyebrow">the question</p>
+          <p class="proposal-line"><span data-bind="name">Vishwa</span>, I like you.</p>
+          <p class="proposal-line">I've liked you for five years.</p>
+          <p class="proposal-line soft">And I'd really like to know...</p>
+          <h2 class="final-question" data-bind="finalQuestion">Would you give me a chance?</h2>
+          <div class="answer-row" id="answerRow">
+            <button class="button yes-button magnetic" id="yesButton" type="button">YES <span aria-hidden="true">♥</span></button>
+            <button class="button time-button" id="timeButton" type="button">I NEED SOME TIME <span aria-hidden="true">↗</span></button>
+          </div>
+          <p class="no-pressure">No pressure, no wrong answer. Just honesty.</p>
+        </div>
+      </section>
+    </main>
+
+    <section class="response-layer" id="responseLayer" aria-live="polite" aria-hidden="true">
+      <div class="response-card" id="responseCard">
+        <button class="close-response" id="closeResponse" type="button" aria-label="Close response">×</button>
+        <p class="eyebrow" id="responseEyebrow"></p>
+        <h2 id="responseTitle"></h2>
+        <p id="responseText"></p>
+        <button class="button secondary hidden" id="continueButton" type="button">Continue exploring <span>→</span></button>
+        <p class="delivery-status" id="deliveryStatus"></p>
+      </div>
+    </section>
+
+    <dialog class="memory-modal" id="memoryModal">
+      <button class="close-modal" type="button" aria-label="Close image">×</button>
+      <img id="modalImage" alt="A memory from this story" />
+      <p id="modalCaption"></p>
+    </dialog>
+
+    <template id="reasonTemplate">
+      <button class="reason-card tilt-card" type="button">
+        <span class="reason-number"></span>
+        <span class="reason-title"></span>
+        <span class="reason-detail"></span>
+        <span class="reason-hint">tap to unfold</span>
+      </button>
+    </template>
+
+    <template id="memoryTemplate">
+      <button class="memory-card tilt-card" type="button">
+        <span class="polaroid-image"></span>
+        <span class="memory-caption"></span>
+      </button>
+    </template>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
